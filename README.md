@@ -1,5 +1,5 @@
-# Particulate Matter Sensor and graphical display
-PM sensor for reading and displaying PM values in a nice way for NOVA SDS011
+# Air Quality Sensor and graphical display
+Air Quality sensor for reading and displaying particulate matter values in a nice way for NOVA SDS011. It displays the current and threshold values for PM10 and PM2.5
 
 Displays a graph which can show data based on following filters
 

@@ -2,7 +2,7 @@ const env = process.env;
 export const nodeEnv = env.NODE_ENV || 'development';
 var db_name = env.DB_NAME;
 var db_collection = env.DB_COLLECTION
-var db_url = env.DB_URL
+var db_url = env.DB_URL.replace(/["]+/g,'');
 export default{
     dbname: db_name,
     collection: db_collection,

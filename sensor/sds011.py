@@ -48,6 +48,7 @@ def process_data(d):
     pm10 = r[1]/10.0
     checksum = sum(ord(v) for v in d[2:8])%256
     if (checksum==r[2] and r[3]==0xab): # write to database if the checksum is okay
+        print(os.environ['DB_URL'])
         mongoClient = pymongo.MongoClient(os.environ['DB_URL'])
         mongoDB = mongoClient[os.environ['DB_NAME']]
         SensorDataCollection = mongoDB[os.environ['DB_COLLECTION']]

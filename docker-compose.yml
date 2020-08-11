@@ -5,6 +5,7 @@ services:
     image: webapp
     build: ./web/
     environment:
+      TZ: "Asia/Dubai"
       NODE_ENV: production
     env_file:
             - 'configs.env'
@@ -13,6 +14,8 @@ services:
   sds_sensor:
     image: sds011
     build: ./sensor/ 
+    environment:
+      TZ: "Asia/Dubai"
     env_file:
             - 'configs.env'
     devices:
