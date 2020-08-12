@@ -12,9 +12,11 @@ Displays a graph which can show data based on following filters
 # Tech
 Made with following technologies
 
-* Web: MERN stack
+* Web: MERN (MongoDb, Express, React, Node) stack
 * Sensor: Python 
-* For charts I am using react-google-charts 
+* charts library: react-google-charts 
+
+We will be using https://mlab.com/ for saving the data in mongodb
 
 # Screenshots
 
@@ -25,3 +27,13 @@ Day summary Table
 
 Weekly summary graph
 ![Screenshot of graphs](http://sherazlodhi.com/assets/images/weekgraph.png)
+
+# configs.env
+
+Add the following text in your configs.env file. which are transferred to docker container environment variables.
+
+DB_URL="your connectionstring with inverted commas"
+
+DB_NAME=dbname
+
+DB_COLLECTION=collectionname
