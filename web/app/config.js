@@ -1,4 +1,6 @@
 const env = process.env;
+console.log(process.env);
+
 export const nodeEnv = env.NODE_ENV || 'development';
 var db_name = env.DB_NAME;
 var db_collection = env.DB_COLLECTION

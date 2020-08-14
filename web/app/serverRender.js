@@ -11,9 +11,8 @@ const endOfDay = new Date().setHours(23,59,59,0);
 
 const serverRender=() =>
 {
-      console.log("I am here")
-      //new Date(startOfDay).setDate(new Date(startOfDay).getDate() - 7)
-     return axios.get(getApiUrl(startOfDay,endOfDay))
+     
+    return axios.get(getApiUrl(startOfDay,endOfDay))
      .then(resp => {
       const initialData = getInitialData(resp.data);
       return {
@@ -39,8 +38,6 @@ const getInitialData = (apiData) => {
       const data_array =[];
       const pm10_array =[];
       
-      //data_array.push([{ type: 'datetime', label: 'time' }, { type: 'number', label: 'PM2.5' },{ type: 'number', label: 'PM10' },"Ideal PM2.5","Ideal PM10"]);
-
       apiData.forEach((item,i)=>{
             data_array.push([new Date(item.epoch_timestamp*1000), parseFloat(item.pm25),parseFloat(item.pm10),10,50]);
       }

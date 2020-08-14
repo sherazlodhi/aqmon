@@ -5,7 +5,7 @@ import App from './components/App';
 
 
 
-ReactDOM.hydrate(<App  initialData={window.initialData} />,document.getElementById('root'));
+ReactDOM.hydrate(<App  initialData={this.state.pmReadings} />,document.getElementById('root'));
 
 
 
