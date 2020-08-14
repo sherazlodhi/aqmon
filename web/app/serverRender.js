@@ -29,7 +29,7 @@ const serverRender=() =>
 
 const getApiUrl=  (start,end) =>{
       const url = `${config.serverUrl}/api/GetPMData?start=`+parseInt(start/1000)+'&end='+parseInt(end/1000);
-      console.log(url);
+      //console.log(url);
       return url;
     };
 const getInitialData = (apiData) => {

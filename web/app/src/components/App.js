@@ -11,13 +11,12 @@ class  App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state ={pmReadings: this.props.initialData.pmReadings};
+    
   }   
-  
   
 
   fetchData =(range)=>{
-   // console.log(range);
+    //console.log(range);
     let data = '';
     const startOfToday = new Date().setHours(0,0,0);
     const endOfToday = new Date().setHours(23,59,59);
@@ -39,37 +38,41 @@ class  App extends React.Component {
         
         break;
     }
-    trackPromise(
+
      api.fetchData(start,endOfToday).then( data=>{
       this.setState( {pmReadings:data.pmReadings});
      }
-    ));
+    );
   }
-
+componentDidMount(){
+  api.fetchData( new Date().setHours(0,0,0), new Date().setHours(23,59,59)).then( data=>{
+    this.setState( {pmReadings:data.pmReadings});
+   }
+  );
+}
 render(){
 
-  var { cols, rows, ChartOptions, TableCols, TableRows, TableOptions } = this.GetDataForCharts();
+  if(this.state == null)
+  return (<div>Loading ...</div>);
 
+
+  var { cols, rows, ChartOptions, TableCols, TableRows, TableOptions } = this.GetDataForCharts();
 
   return (
     <div className="container-fluid" className="App">
     <div className="row">
       <SideBar OnMenuClick={this.fetchData} />
 <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-
- 
-
-
-    <LoadingIndicator />
-  <Chart
-    height={'900'}
+<div style={{height:  '900px'}} >
+   <Chart
+    height={'900px'}
     chartType="LineChart"
     
     loader={<div>Loading...</div>}
     data={[cols, ...rows]}
     options ={ChartOptions}
   />
-  
+  </div>
   <Chart
     width ={'100%'}
     chartType="Table"
@@ -111,8 +114,8 @@ render(){
 }
 
   GetDataForCharts() {
-    let data = this.state.pmReadings;
 
+    let data = this.state.pmReadings;
 
     const ChartOptions = {
       title: "Particulate Matter values",
