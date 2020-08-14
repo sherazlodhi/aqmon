@@ -47,9 +47,8 @@ class  App extends React.Component {
   }
 
 render(){
-// console.log("In render" + this.state.pmReadings);
+
   var { cols, rows, ChartOptions, TableCols, TableRows, TableOptions } = this.GetDataForCharts();
-//console.log(rows);
 
 
   return (

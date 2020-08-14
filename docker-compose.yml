@@ -3,7 +3,9 @@ version: '3.4'
 services:
   sds_webapp:
     image: webapp
-    build: ./web/
+    build: 
+        context: ./web
+        dockerfile: Dockerfile #Dockerfile-x86 
     environment:
       TZ: "Asia/Dubai"
       NODE_ENV: production
@@ -11,7 +13,7 @@ services:
             - 'configs.env'
     ports:
             - "3000:3000"              
-  sds_sensor:
+ sds_sensor:
     image: sds011
     build: ./sensor/ 
     environment:
@@ -19,4 +21,4 @@ services:
     env_file:
             - 'configs.env'
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
+  - "/dev/ttyUSB0:/dev/ttyUSB0"
