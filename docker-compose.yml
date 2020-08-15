@@ -3,6 +3,8 @@ version: '3.4'
 services:
   sds_webapp:
     image: webapp
+    restart: always
+    deploy:
     build: 
         context: ./web
         dockerfile: Dockerfile #Dockerfile-x86 
@@ -15,7 +17,9 @@ services:
             - "3000:3000"              
   sds_sensor:
     image: sds011
-    build: ./sensor/ 
+    build: ./sensor/
+    restart: always
+    deploy:
     environment:
       TZ: "Asia/Dubai"
     env_file:
