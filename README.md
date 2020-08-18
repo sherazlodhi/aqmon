@@ -40,6 +40,8 @@ DB_COLLECTION=collectionname
 
 # Running the project
 
-
+Following commands will run both docker containers and start the services
+```
 git clone https://github.com/sherazlodhi/aqmon.git
 docker-compose build && docker-compose up -d
+```
