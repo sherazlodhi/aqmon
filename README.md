@@ -37,3 +37,9 @@ DB_URL="your connectionstring with inverted commas"
 DB_NAME=dbname
 
 DB_COLLECTION=collectionname
+
+# Running the project
+
+
+git clone https://github.com/sherazlodhi/aqmon.git
+docker-compose build && docker-compose up -d
